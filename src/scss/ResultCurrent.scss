@@ -91,6 +91,7 @@
 @media (min-width: 640px) {
   .result-current {
     margin: 0;
+
     &--err {
       &__title {
         font-size: 2rem;
@@ -102,6 +103,7 @@
 @media (min-width: 768px) {
   .result-current {
     margin: 0;
+
     &__details__svg {
       height: 30px;
       margin: 10px 15px 10px 0;

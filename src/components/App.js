@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import apiKey from "./config";
 import "../scss/App.scss";
 import Form from "./Form";
 import ResultCurrent from "./ResultCurrent";
@@ -33,8 +34,6 @@ class App extends Component {
     hourly: [],
   };
 
-  apiKey = "74323c845fae4e02403d05e666c258c9";
-
   handleFormInput = (e) => {
     this.setState({
       value: e.target.value,
@@ -43,7 +42,7 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const apiCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${this.apiKey}&units=metric&lang=pl`;
+    const apiCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${apiKey}&units=metric&lang=pl`;
 
     if (this.state.value.length > 1) {
       fetch(apiCurrent)
@@ -55,7 +54,6 @@ class App extends Component {
         })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           this.setState({
             date: data.dt * 1000,
             sunrise: data.sys.sunrise * 1000,
@@ -80,7 +78,7 @@ class App extends Component {
             errInfo: "",
           });
 
-          const apiForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.latitude}&lon=${this.state.longitude}&%20exclude=hourly&appid=${this.apiKey}&units=metric&lang=pl`;
+          const apiForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.latitude}&lon=${this.state.longitude}&%20exclude=hourly&appid=${apiKey}&units=metric&lang=pl`;
 
           return fetch(apiForecast);
         })
@@ -92,7 +90,6 @@ class App extends Component {
         })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           this.setState({
             daily: data.daily,
             hourly: data.hourly,
@@ -244,10 +241,5 @@ class App extends Component {
     }
   }
 }
-
-// const apiKey = "74323c845fae4e02403d05e666c258c9";
-// const apiCurrent = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-// const apiForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&%20exclude=hourly&appid=${apiKey}&units=metric`;
-// const ipLocation = "json.geoiplookup.io"
 
 export default App;

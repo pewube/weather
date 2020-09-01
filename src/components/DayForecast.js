@@ -113,7 +113,7 @@ const DayForecast = (props) => {
             <strong>
               {(wind_speed * 3.6).toFixed()} km/h
               {wind_gust
-                ? ` (w porywach do ${(wind_gust * 3.6).toFixed()} km/h)`
+                ? ` (porywy do ${(wind_gust * 3.6).toFixed()} km/h)`
                 : null}
             </strong>
             , kierunek: <strong>{props.windDirection(wind_deg)}</strong>
@@ -143,13 +143,13 @@ const DayForecast = (props) => {
           <p className="day-forecast__details__par">
             Wschód słońca:{" "}
             <strong>
-              godz. {new Date(sunrise * 1000).toLocaleTimeString().slice(0, 5)}
+              {new Date(sunrise * 1000).toLocaleTimeString().slice(0, 5)}
             </strong>
           </p>
           <p className="day-forecast__details__par">
             Zachód słońca:{" "}
             <strong>
-              godz. {new Date(sunset * 1000).toLocaleTimeString().slice(0, 5)}
+              {new Date(sunset * 1000).toLocaleTimeString().slice(0, 5)}
             </strong>
           </p>
         </div>

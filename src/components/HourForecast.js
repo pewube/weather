@@ -93,7 +93,7 @@ const HourForecast = (props) => {
             <strong>
               {(wind_speed * 3.6).toFixed()} km/h
               {wind_gust
-                ? ` (w porywach do ${(wind_gust * 3.6).toFixed()} km/h)`
+                ? ` (porywy do ${(wind_gust * 3.6).toFixed()} km/h)`
                 : null}
             </strong>
             , kierunek: <strong>{props.windDirection(wind_deg)}</strong>

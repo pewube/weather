@@ -51,8 +51,8 @@
     transform-origin: 0 0;
     transform: scaleY(0);
     overflow: hidden;
+
     &--active {
-      // padding-top: 5px;
       transform: scaleY(1);
     }
 
