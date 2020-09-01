@@ -4,15 +4,12 @@ import "../scss/Form.scss";
 const Form = (props) => {
   return (
     <form className="form" onSubmit={props.onSubmit}>
-      <label className="form__input__label" htmlFor="input-city">
-        Jaka pogoda ?
-      </label>
       <input
         className="form__input"
-        id="input-city"
         type="text"
-        value={props.value}
+        aria-label="city"
         placeholder="Nazwa miejscowości"
+        value={props.value}
         onChange={props.onChange}
       />
       <button className="form__btn">Szukaj</button>
