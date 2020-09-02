@@ -145,27 +145,6 @@ class App extends Component {
     }
   };
 
-  weekDay = (dayNumber) => {
-    switch (dayNumber) {
-      case 1:
-        return "poniedziałek";
-      case 2:
-        return "wtorek";
-      case 3:
-        return "środa";
-      case 4:
-        return "czwartek";
-      case 5:
-        return "piątek";
-      case 6:
-        return "sobota";
-      case 0:
-        return "niedziela";
-      default:
-        return null;
-    }
-  };
-
   render() {
     const bgSrcValue = `/assets/img/bg-${this.state.iconWeather}.jpg`;
 
@@ -224,12 +203,10 @@ class App extends Component {
               <ResultDaily
                 state={this.state}
                 windDirection={this.windDirection}
-                weekDay={this.weekDay}
               />
               <ResultHourly
                 state={this.state}
                 windDirection={this.windDirection}
-                weekDay={this.weekDay}
               />
             </main>
             <footer className="app__footer">

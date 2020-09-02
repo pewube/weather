@@ -36,7 +36,13 @@ const ResultCurrent = (props) => {
       </div>
     );
   } else {
-    const headerDate = new Date(date).toLocaleString().slice(0, 17);
+    const headerDate = new Date(date).toLocaleDateString("pl", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     const imgWeatherSrcValue = `/assets/img/ico-${iconWeather}.svg`;
     const imgWeatherAltValue = `Ikona prognozy dla ${headerDate}: ${description}`;
     return (

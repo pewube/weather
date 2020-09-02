@@ -19,7 +19,10 @@ const HourForecast = (props) => {
     visibility,
   } = props.data;
 
-  const headerHour = new Date(dt * 1000).toTimeString().slice(0, 5);
+  const headerHour = new Date(dt * 1000).toLocaleTimeString("pl", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   const imgWeatherSrcValue = `/assets/img/ico-${weather[0].icon}.svg`;
   const imgWeatherAltValue = `Ikona prognozy dla godz. ${headerHour}: ${weather[0].description}`;
 
@@ -55,7 +58,7 @@ const HourForecast = (props) => {
   return (
     <article
       className="hour-forecast"
-      data-weekday={new Date(dt * 1000).getDay()}>
+      data-weekday-number={new Date(dt * 1000).getDay()}>
       <header className="hour-forecast__header">
         <p className="hour-forecast__header__hour">{headerHour}</p>
         <h4 className="hour-forecast__header__temp">{temp.toFixed()}&#176;C</h4>

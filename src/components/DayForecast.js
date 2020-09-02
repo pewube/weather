@@ -21,7 +21,10 @@ const DayForecast = (props) => {
     pop,
   } = props.data;
 
-  const headerDate = new Date(dt * 1000).toLocaleDateString().slice(0, 5);
+  const headerDate = new Date(dt * 1000).toLocaleDateString("pl", {
+    day: "2-digit",
+    month: "2-digit",
+  });
   const imgWeatherSrcValue = `/assets/img/ico-${weather[0].icon}.svg`;
   const imgWeatherAltValue = `Ikona prognozy dla ${headerDate}: ${weather[0].description}`;
 
@@ -59,7 +62,7 @@ const DayForecast = (props) => {
         <section className="day-forecast__header__date">
           <h3 className="day-forecast__header__date--number">{headerDate}</h3>
           <p className="day-forecast__header__date--weekday">
-            {props.weekDay(new Date(dt * 1000).getDay())}
+            {new Date(dt * 1000).toLocaleDateString("pl", { weekday: "long" })}
           </p>
         </section>
         <section className="day-forecast__header__temp">

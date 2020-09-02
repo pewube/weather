@@ -6,12 +6,7 @@ const ResultDaily = (props) => {
   const { daily, err } = props.state;
 
   const dayForecasts = daily.map((day, index) => (
-    <DayForecast
-      key={index}
-      data={day}
-      windDirection={props.windDirection}
-      weekDay={props.weekDay}
-    />
+    <DayForecast key={index} data={day} windDirection={props.windDirection} />
   ));
 
   if (daily.length > 0 && !err) {

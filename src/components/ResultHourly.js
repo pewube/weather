@@ -5,28 +5,31 @@ import "../scss/ResultHourly.scss";
 const ResultHourly = (props) => {
   const { hourly, err } = props.state;
 
-  const hourForecasts = hourly.map((hour, index) => (
+  const hourForecasts = hourly.map((hour) => (
     <HourForecast
       key={hour.dt}
       data={hour}
       windDirection={props.windDirection}
-      weekDay={props.weekDay}
     />
   ));
 
-  const showWeekdayHours = (number) => {
+  const showWeekdayHours = (weekDay) => {
     if (
       hourForecasts.filter(
-        (el) => new Date(el.props.data.dt * 1000).getDay() === number
+        (el) =>
+          new Date(el.props.data.dt * 1000).toLocaleDateString("pl", {
+            weekday: "long",
+          }) === weekDay
       ).length > 0
     ) {
       return (
         <section className="result-hourly__list__day-list">
-          <h3 className="result-hourly__list__day-list__title">
-            {props.weekDay(number)}
-          </h3>
+          <h3 className="result-hourly__list__day-list__title">{weekDay}</h3>
           {hourForecasts.filter(
-            (el) => new Date(el.props.data.dt * 1000).getDay() === number
+            (el) =>
+              new Date(el.props.data.dt * 1000).toLocaleDateString("pl", {
+                weekday: "long",
+              }) === weekDay
           )}
         </section>
       );
@@ -36,7 +39,7 @@ const ResultHourly = (props) => {
   };
 
   if (hourly.length > 0 && !err) {
-    if (!!showWeekdayHours(0) && !!showWeekdayHours(6)) {
+    if (!!showWeekdayHours("niedziela") && !!showWeekdayHours("sobota")) {
       return (
         <section className="result-hourly">
           <header className="result-hourly__header">
@@ -45,13 +48,13 @@ const ResultHourly = (props) => {
             </h2>
           </header>
           <section className="result-hourly__list">
-            {showWeekdayHours(2)}
-            {showWeekdayHours(3)}
-            {showWeekdayHours(4)}
-            {showWeekdayHours(5)}
-            {showWeekdayHours(6)}
-            {showWeekdayHours(0)}
-            {showWeekdayHours(1)}
+            {showWeekdayHours("środa")}
+            {showWeekdayHours("czwartek")}
+            {showWeekdayHours("piątek")}
+            {showWeekdayHours("sobota")}
+            {showWeekdayHours("niedziela")}
+            {showWeekdayHours("poniedziałek")}
+            {showWeekdayHours("wtorek")}
           </section>
         </section>
       );
@@ -62,13 +65,13 @@ const ResultHourly = (props) => {
             <h2 className="result-hourly__title">Prognoza 48-godzinna</h2>
           </header>
           <section className="result-hourly__list">
-            {showWeekdayHours(0)}
-            {showWeekdayHours(1)}
-            {showWeekdayHours(2)}
-            {showWeekdayHours(3)}
-            {showWeekdayHours(4)}
-            {showWeekdayHours(5)}
-            {showWeekdayHours(6)}
+            {showWeekdayHours("niedziela")}
+            {showWeekdayHours("poniedziałek")}
+            {showWeekdayHours("wtorek")}
+            {showWeekdayHours("środa")}
+            {showWeekdayHours("czwartek")}
+            {showWeekdayHours("piątek")}
+            {showWeekdayHours("sobota")}
           </section>
         </section>
       );
