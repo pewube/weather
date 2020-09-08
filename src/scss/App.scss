@@ -47,6 +47,18 @@
   }
 }
 
+@media (min-width: 360px) {
+  .app {
+    &-start__header {
+      padding: 20px;
+    }
+
+    &-start__main {
+      padding: 20px;
+    }
+  }
+}
+
 @media (min-width: 640px) {
   .app {
     &-container {
