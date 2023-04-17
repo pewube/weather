@@ -1,0 +1,87 @@
+@import "typography";
+
+.hour-forecast {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    padding-bottom: 5px;
+
+    &__hour {
+      padding-right: 5px;
+      line-height: 25px;
+    }
+
+    &__temp {
+      min-width: 55px;
+      padding-right: 5px;
+      line-height: 25px;
+    }
+
+    &__wind {
+      min-width: 100px;
+      padding-right: 5px;
+      line-height: 25px;
+      span {
+        font-size: 0.7rem;
+      }
+    }
+
+    &__icon-weather {
+      padding-right: 5px;
+      &__img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    &__btn-details {
+      width: 20px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      font-size: 1.2rem;
+    }
+  }
+  &__details {
+    height: 0;
+    transition: 0.3s;
+    transform-origin: 0 0;
+    transform: scaleY(0);
+    overflow: hidden;
+
+    &--active {
+      transform: scaleY(1);
+    }
+
+    &__par {
+      line-height: 130%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .hour-forecast {
+    &__header {
+      &__hour {
+        min-width: 60px;
+      }
+
+      &__temp {
+        min-width: 65px;
+      }
+
+      &__wind {
+        min-width: 140px;
+      }
+    }
+
+    &__details {
+      &__par {
+        line-height: 140%;
+      }
+    }
+  }
+}

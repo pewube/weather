@@ -1,0 +1,25 @@
+@import "reset";
+@import "variables";
+@import "typography";
+@import "app";
+@import "citiesList";
+@import "dayForecast";
+@import "footer";
+@import "form";
+@import "header";
+@import "hourForecast";
+@import "modal";
+@import "currentWeather";
+@import "resultDaily";
+@import "resultHourly";
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}

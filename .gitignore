@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+yahoo.txt
+api-key.txt
+config.js
+App.test.js
+setupTests.js
+.htaccess

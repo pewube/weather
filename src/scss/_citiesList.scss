@@ -1,0 +1,42 @@
+.cities-list {
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px 10px;
+}
+
+.city {
+  &__link {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    min-height: 44px;
+
+    text-decoration: none;
+    color: #000;
+  }
+
+  span {
+    flex-grow: 1;
+    margin-left: 5px;
+
+    font-size: 0.9rem;
+  }
+
+  &__name {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 768px) {
+  .cities-list {
+    padding: 7px 15px;
+  }
+
+  .city {
+    span {
+      margin-left: 7px;
+    }
+  }
+}

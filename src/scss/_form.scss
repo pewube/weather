@@ -1,0 +1,50 @@
+@import "typography";
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__input {
+    width: 70%;
+    font-family: "Lato", sans-serif;
+
+    padding: 5px 10px;
+    border: none;
+    border-radius: $borderRadius;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    line-height: 140%;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  &__btn {
+    flex-grow: 1;
+    padding: 5px 5px;
+    border: none;
+    border-radius: $borderRadius;
+    margin-left: 10px;
+    font-family: "Lato", sans-serif;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-weight: 700;
+    line-height: 140%;
+  }
+}
+
+@media (min-width: 768px) {
+  .form {
+    &__input {
+      padding: 7px 15px;
+      font-size: 1.1rem;
+    }
+
+    &__btn {
+      padding: 5px 5px;
+      font-size: 1.1rem;
+    }
+  }
+}
