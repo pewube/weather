@@ -9,6 +9,16 @@ const formatCityDetails = (citiesList) => {
         .replace("Łódź", "Łódzkie")
         .replace("Subcarpathian", "Podkarpackie")
         .replace("Warmian-Masurian", "Warmińsko-Mazurskie")
+        .replace("Kuyavian-Pomeranian", "Kujawsko-Pomorskie")
+        .replace("Lower Silesian", "Dolnośląskie")
+        .replace("Lublin", "Lubelskie")
+        .replace("Greater Poland", "Wielkopolskie")
+        .replace("Lesser Poland", "Małopolskie")
+        .replace("Lubusz", "Lubuskie")
+        .replace("Pomeranian", "Pomorskie")
+        .replace("Silesian", "Śląskie")
+        .replace("Opole", "Opolskie")
+        .replace("West Pomorskie", "Zachodniopomorskie")
         .replace("West Pomeranian", "Zachodniopomorskie");
     }
   }
