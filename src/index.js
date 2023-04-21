@@ -6,49 +6,40 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import "./scss/index.scss";
-// import App from "./components/App";
-import AppProvider from "./context/AppContext";
-import ErrorPage from "./components/ErrorPage";
-import App from "./routes/App";
-import Home from "./routes/Home";
 import reportWebVitals from "./reportWebVitals";
+
+import "./scss/index.scss";
+
+import App from "./routes/App";
+import AppProvider from "./context/AppContext";
 import CitiesFound, { loader as citiesLoader } from "./routes/CitiesFound";
-import Forecast, { loader as forecastLoader } from "./routes/Forecast";
-import CurrentWeather, {
-  loader as currentLoader,
-} from "./routes/CurrentWeather";
+import CurrentWeather from "./routes/CurrentWeather";
+import ErrorPage from "./components/ErrorPage";
+import Forecast, { loader as weatherLoader } from "./routes/Forecast";
+import Forecast48Hours from "./routes/Forecast48Hours";
+import Forecast8Days from "./routes/Forecast8Days";
+import MainErrorPage from "./components/MainErrorPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route
-      path="/"
-      element={<App />}
-      // loader={rootLoader}
-      // action={rootAction}
-      errorElement={<ErrorPage />}>
+    <Route path="/" element={<App />} errorElement={<MainErrorPage />}>
       <Route errorElement={<ErrorPage />}>
-        <Route index element={<Home />} />
         <Route
           path="/city/:city"
           element={<CitiesFound />}
           loader={citiesLoader}
         />
         <Route
-          path="/current/:lat/:lon"
-          element={<CurrentWeather />}
-          loader={currentLoader}
-        />
-        <Route
-          path="/48-hours/:lat/:lon"
+          path="/:city/:lat/:lon"
           element={<Forecast />}
-          loader={forecastLoader}
-        />
-        <Route
-          path="/8-days/:lat/:lon"
-          element={<Forecast />}
-          loader={forecastLoader}
-        />
+          loader={weatherLoader}>
+          <Route path="/:city/:lat/:lon/current" element={<CurrentWeather />} />
+          <Route
+            path="/:city/:lat/:lon/48-hours"
+            element={<Forecast48Hours />}
+          />
+          <Route path="/:city/:lat/:lon/8-days" element={<Forecast8Days />} />
+        </Route>
       </Route>
     </Route>
   )
