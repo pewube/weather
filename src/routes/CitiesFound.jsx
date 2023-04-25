@@ -10,7 +10,7 @@ export async function loader({ params }) {
       if (response.ok) {
         return response;
       }
-      throw Error(`Błąd połączenia z serwerem. Kod: ${response.status}`);
+      throw Error("apiGeocoding error", { cause: response.status });
     })
     .then((response) => response.json())
     .then((data) => {
@@ -18,17 +18,30 @@ export async function loader({ params }) {
       return data;
     })
     .catch((err) => {
-      return err;
+      throw new Response("", {
+        status: Number(err?.cause),
+        statusText: encodeURIComponent(
+          "Błąd pobierania danych dotyczących wyszukiwanej nazwy."
+        ),
+      });
     });
 
   // verify the cities found and remove the same ones
   const citiesFoundLength = citiesFound.length;
-
-  if (citiesFoundLength === 1) {
+  if (citiesFoundLength < 1) {
+    throw new Response("", {
+      status: 299,
+      statusText: encodeURIComponent(
+        "Nie znaleziono miejscowości o podanej nazwie."
+      ),
+    });
+  } else if (citiesFoundLength === 1) {
     return redirect(
-      `/current/${citiesFound[0]["lat"]}/${citiesFound[0]["lon"]}`
+      `/${encodeURIComponent(citiesFound[0]["name"])}/${
+        citiesFound[0]["lat"]
+      }/${citiesFound[0]["lon"]}/current`
     );
-  } else if (citiesFoundLength > 1) {
+  } else {
     let citiesVerified = [];
     citiesVerified.push(citiesFound[0]);
 
@@ -50,7 +63,9 @@ export async function loader({ params }) {
     // take actions according to the length of the limited list of cities
     if (citiesVerified.length === 1) {
       return redirect(
-        `/current/${citiesFound[0]["lat"]}/${citiesFound[0]["lon"]}`
+        `/${encodeURIComponent(citiesFound[0]["name"])}/${
+          citiesFound[0]["lat"]
+        }/${citiesFound[0]["lon"]}/current`
       );
     } else {
       return citiesVerified;
@@ -61,7 +76,7 @@ export async function loader({ params }) {
 const CitiesFound = () => {
   const citiesVerified = useLoaderData();
 
-  return <CitiesList cities={citiesVerified} />;
+  return <CitiesList data={citiesVerified} />;
 };
 
 export default CitiesFound;
