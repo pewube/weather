@@ -2,23 +2,23 @@ import { useContext } from "react";
 
 import { AppContext } from "../context/AppContext";
 
-const Modal = (props) => {
-  const { modalVisible, setModalVisible } = useContext(AppContext);
-  console.log("modalVisible:", modalVisible);
+const Modal = () => {
+  const { modal, setModal } = useContext(AppContext);
+
   const removeModal = () => {
-    setModalVisible(false);
+    setModal({ visible: false, header: {}, body: {} });
   };
 
   return (
-    modalVisible && (
+    modal.visible &&
+    modal.body && (
       <section className="modal">
-        <article className="modal__body">
-          <header className="modal__header">
-            <button onClick={removeModal} className="btn--close">
-              <span className="material-symbols-outlined">close</span>
-            </button>
-          </header>
-          <section className="modal__content">{props.children}</section>
+        <article className="modal__content">
+          <header className="modal__header">{modal.header}</header>
+          <button onClick={removeModal} className="modal__btn-close btn-clear">
+            <span className="material-symbols-outlined">close</span>
+          </button>
+          <section className="modal__body">{modal.body}</section>
         </article>
       </section>
     )
