@@ -18,11 +18,10 @@ import ErrorPage from "./components/ErrorPage";
 import Forecast, { loader as weatherLoader } from "./routes/Forecast";
 import Forecast48Hours from "./routes/Forecast48Hours";
 import Forecast8Days from "./routes/Forecast8Days";
-import MainErrorPage from "./components/MainErrorPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />} errorElement={<MainErrorPage />}>
+    <Route path="/" element={<App />} errorElement={<ErrorPage />}>
       <Route errorElement={<ErrorPage />}>
         <Route
           path="/city/:city"
