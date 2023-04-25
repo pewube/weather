@@ -1,17 +1,20 @@
 @import "reset";
 @import "variables";
 @import "typography";
+@import "commons";
 @import "app";
+@import "navigation";
 @import "citiesList";
 @import "dayForecast";
 @import "footer";
 @import "form";
 @import "header";
 @import "hourForecast";
-@import "modal";
 @import "currentWeather";
 @import "resultDaily";
 @import "resultHourly";
+@import "modal";
+@import "mapLocation";
 
 * {
   box-sizing: border-box;
