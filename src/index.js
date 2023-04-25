@@ -32,7 +32,7 @@ const router = createBrowserRouter(
           path="/:city/:lat/:lon"
           element={<Forecast />}
           loader={weatherLoader}>
-          <Route path="/:city/:lat/:lon/current" element={<CurrentWeather />} />
+          <Route path="/:city/:lat/:lon/now" element={<CurrentWeather />} />
           <Route
             path="/:city/:lat/:lon/48-hours"
             element={<Forecast48Hours />}

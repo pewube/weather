@@ -14,7 +14,7 @@ const verifyCitiesFound = (citiesFound) => {
     return redirect(
       `/${encodeURIComponent(citiesFound[0]["name"])}/${
         citiesFound[0]["lat"]
-      }/${citiesFound[0]["lon"]}/current`
+      }/${citiesFound[0]["lon"]}/now`
     );
   } else {
     let citiesVerified = [];
@@ -40,7 +40,7 @@ const verifyCitiesFound = (citiesFound) => {
       return redirect(
         `/${encodeURIComponent(citiesFound[0]["name"])}/${
           citiesFound[0]["lat"]
-        }/${citiesFound[0]["lon"]}/current`
+        }/${citiesFound[0]["lon"]}/now`
       );
     } else {
       return citiesVerified;

@@ -29,7 +29,7 @@ const CitiesList = ({ data }) => {
   const citiesList = cities?.map((city, index) => (
     <li key={index} className="cities-list__item city">
       <NavLink
-        to={`/${encodeURIComponent(city.name)}/${city.lat}/${city.lon}/current`}
+        to={`/${encodeURIComponent(city.name)}/${city.lat}/${city.lon}/now`}
         className="city__link">
         <div className="city__name">
           <p>{city.local_names?.pl || city.name}</p>

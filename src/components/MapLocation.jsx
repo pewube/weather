@@ -95,7 +95,7 @@ const MapLocation = ({
             <Link
               to={`/${encodeURIComponent(city.name)}/${city.lat}/${
                 city.lon
-              }/current`}>
+              }/now`}>
               {city.local_names?.pl || city.name} - kliknij aby zobaczyć jaka
               pogoda
             </Link>
