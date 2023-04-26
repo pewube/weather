@@ -50,8 +50,11 @@ const App = () => {
         </Link>
         <Form />
       </header>
-      {navigation}
-      {main}
+      <div className="main-container">
+        {navigation}
+        {main}
+      </div>
+
       <Modal />
       <Footer />
     </>
