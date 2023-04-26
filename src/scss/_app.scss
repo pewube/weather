@@ -11,10 +11,45 @@
 }
 
 .header,
-.nav,
-.main {
+.main-container {
   width: 100%;
-  max-width: 700px;
-  padding: 20px;
+  max-width: 720px;
   margin: 0 auto;
+}
+
+.header,
+.nav {
+  padding: 20px;
+}
+
+.main {
+  padding: 20px 20px 60px 20px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 576px) {
+  .header,
+  .nav {
+    padding: 20px 30px;
+  }
+
+  .main {
+    padding: 20px 30px 60px 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+  }
+
+  .nav {
+    flex-shrink: 0;
+
+    width: 250px;
+  }
 }
