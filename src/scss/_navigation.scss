@@ -1,0 +1,28 @@
+.nav__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+  column-gap: 10px;
+  grid-column-gap: 10px; //Safari <12
+  row-gap: 10px;
+  grid-row-gap: 10px; //Safari <12
+}
+
+.nav__item__link {
+  display: flex;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  &.active {
+    box-shadow: 0 5px 1px 0 $colorFocus;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav__list {
+    grid-template-columns: 1fr;
+  }
+  .nav__item {
+    width: 100%;
+  }
+}
