@@ -3,7 +3,7 @@ import { apiKey } from "./config";
 import verifyCitiesFound from "./verifyCitiesFound";
 
 const fetchVerifiedCities = async (params) => {
-  const apiGeocoding = `http://api.openweathermap.org/geo/1.0/direct?q=${params.city}&limit=5&appid=${apiKey}&units=metric&lang=pl`;
+  const apiGeocoding = `https://api.openweathermap.org/geo/1.0/direct?q=${params.city}&limit=5&appid=${apiKey}&units=metric&lang=pl`;
 
   const citiesFound = await fetch(apiGeocoding)
     .then((response) => {
@@ -27,7 +27,7 @@ const fetchVerifiedCities = async (params) => {
 
   console.log("fetchMatchedCities ", citiesFound);
 
-  const citiesVerified = verifyCitiesFound(citiesFound);
+  const citiesVerified = verifyCitiesFound(citiesFound, params.city);
 
   return citiesVerified;
 };
