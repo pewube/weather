@@ -1,20 +1,23 @@
 import { redirect } from "react-router-dom";
 
-const verifyCitiesFound = (citiesFound) => {
+const verifyCitiesFound = (citiesFound, stringNotFound) => {
   // verify the cities found and remove the same ones
   const citiesFoundLength = citiesFound.length;
   if (citiesFoundLength < 1) {
     throw new Response("", {
       status: 299,
       statusText: encodeURIComponent(
-        "Nie znaleziono miejscowości o podanej nazwie."
+        `Nie znaleziono miejscowości o nazwie: ${stringNotFound}`
       ),
     });
   } else if (citiesFoundLength === 1) {
+    const cityName =
+      citiesFound[0]?.["local_names"]?.["pl"] || citiesFound[0]["name"];
+
     return redirect(
-      `/${encodeURIComponent(citiesFound[0]["name"])}/${
-        citiesFound[0]["lat"]
-      }/${citiesFound[0]["lon"]}/now`
+      `/${encodeURIComponent(cityName)}/${citiesFound[0]["lat"]}/${
+        citiesFound[0]["lon"]
+      }/now`
     );
   } else {
     let citiesVerified = [];
@@ -37,10 +40,13 @@ const verifyCitiesFound = (citiesFound) => {
 
     // take actions according to the length of the limited list of cities
     if (citiesVerified.length === 1) {
+      const cityName =
+        citiesFound[0]?.["local_names"]?.["pl"] || citiesFound[0]["name"];
+
       return redirect(
-        `/${encodeURIComponent(citiesFound[0]["name"])}/${
-          citiesFound[0]["lat"]
-        }/${citiesFound[0]["lon"]}/now`
+        `/${encodeURIComponent(cityName)}/${citiesFound[0]["lat"]}/${
+          citiesFound[0]["lon"]
+        }/now`
       );
     } else {
       return citiesVerified;
