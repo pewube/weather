@@ -1,24 +1,28 @@
 const formatDayName = (secondsDate) => {
-  const dateNumber = new Date(secondsDate * 1000).getDay();
+  const dayNumber = new Date(secondsDate * 1000).getDay();
+  const dayDate = new Date(secondsDate * 1000).toLocaleDateString("pl", {
+    day: "2-digit",
+    month: "2-digit",
+  });
 
-  switch (dateNumber) {
+  switch (dayNumber) {
     case 0:
-      return "Niedziela";
+      return `${dayDate} Niedziela`;
     case 1:
-      return "Poniedziałek";
+      return `${dayDate} Poniedziałek`;
     case 2:
-      return "Wtorek";
+      return `${dayDate} Wtorek`;
     case 3:
-      return "Środa";
+      return `${dayDate} Środa`;
     case 4:
-      return "Czwartek";
+      return `${dayDate} Czwartek`;
     case 5:
-      return "Piątek";
+      return `${dayDate} Piątek`;
     case 6:
-      return "Sobota";
+      return `${dayDate} Sobota`;
     default:
   }
-  return "Co za dzień ?";
+  return `${dayDate}`;
 };
 
 export default formatDayName;
