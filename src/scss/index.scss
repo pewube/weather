@@ -5,16 +5,19 @@
 @import "app";
 @import "navigation";
 @import "citiesList";
-@import "dayForecast";
 @import "footer";
 @import "form";
 @import "header";
-@import "hourForecast";
+@import "forecast";
+@import "forecast48Hours";
+@import "hourlyForecast";
 @import "currentWeather";
-@import "resultDaily";
-@import "resultHourly";
+@import "forecast8Days";
+@import "dailyForecast";
 @import "modal";
 @import "mapLocation";
+@import "loadingSpinner";
+@import "../css/leaflet.css";
 
 * {
   box-sizing: border-box;
