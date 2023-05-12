@@ -24,6 +24,46 @@ const formatWindDirection = (windDeg) => {
   for (const [key, value] of Object.entries(directions)) {
     if (windDeg >= value[0] && windDeg <= value[1]) {
       direction = key;
+      /*
+      switch (direction) {
+        case "n1":
+          return "pn.";
+        case "nne":
+          return "pn.-pn.-wsch.";
+        case "ne":
+          return "pn.-wsch.";
+        case "ene":
+          return "wsch.-pn.-wsch.";
+        case "e":
+          return "wsch.";
+        case "ese":
+          return "wsch.-pd.-wsch.";
+        case "se":
+          return "pd.-wsch.";
+        case "sse":
+          return "pd.-pd.-wsch.";
+        case "s":
+          return "pd.";
+        case "ssw":
+          return "pd.-pd.-zach.";
+        case "sw":
+          return "pd.-zach.";
+        case "wsw":
+          return "zach.-pd.-zach.";
+        case "w":
+          return "zach.";
+        case "wnw":
+          return "zach.-pn.-zach.";
+        case "nw":
+          return "pn.-zach.";
+        case "nnw":
+          return "pn.-pn.-zach.";
+        case "nn2":
+          return "pn.";
+        default:
+          return "?";
+      }
+      */
       return direction === "n1" || direction === "n2"
         ? "N"
         : direction.toUpperCase();
