@@ -25,8 +25,7 @@ const Form = () => {
             <p>Nazwa miejscowości musi być dłuższa.</p>
             <p>
               Jeżeli próbujesz wyszukać miejscowość o nazwie krótszej niż 3
-              litery - po nazwie wpisz przecinek i 2-literowy kod kraju
-              (ISO3166) np.{" "}
+              litery - po nazwie wpisz przecinek i 2-literowy kod kraju np.{" "}
               <span className="example">
                 A, FR (dla miejscowości A we Francji)
               </span>
@@ -59,10 +58,17 @@ const Form = () => {
           placeholder="Nazwa miejscowości"
         />
         <button
+          onClick={handleInputResetBtn}
           className="form__input__btn btn-clear"
           type="reset"
-          onClick={handleInputResetBtn}>
-          <span className="material-symbols-outlined">close</span>
+          aria-label="Reset input text">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="material-symbols-outlined"
+            viewBox="0 96 960 960"
+            width="24">
+            <path d="m256 856-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg>
         </button>
         <button className="form__btn btn-primary">Szukaj</button>
         {inputErrorInfo}
