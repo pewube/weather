@@ -17,18 +17,18 @@ const Navigation = () => {
         <NavLink
           to={`/${encodeURIComponent(params.city)}/${params.lat}/${
             params.lon
-          }/48-hours`}
+          }/8-days`}
           className="nav__item__link btn-primary">
-          48 godz.
+          8 dni
         </NavLink>
       </li>
       <li className="nav__item">
         <NavLink
           to={`/${encodeURIComponent(params.city)}/${params.lat}/${
             params.lon
-          }/8-days`}
+          }/48-hours`}
           className="nav__item__link btn-primary">
-          8 dni
+          48 godz.
         </NavLink>
       </li>
     </ul>
