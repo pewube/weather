@@ -10,6 +10,8 @@ import {
 import { useEventHandlers } from "@react-leaflet/core";
 import { Link } from "react-router-dom";
 
+import L from "leaflet";
+
 // Classes used by Leaflet to position controls
 const POSITION_CLASSES = {
   bottomleft: "leaflet-bottom leaflet-left",
@@ -20,7 +22,7 @@ const POSITION_CLASSES = {
 
 const BOUNDS_STYLE = { weight: 1 };
 
-function MinimapBounds({ parentMap, zoom }) {
+const MinimapBounds = ({ parentMap, zoom }) => {
   const minimap = useMap();
 
   // Keep track of bounds in state to trigger renders
@@ -39,9 +41,9 @@ function MinimapBounds({ parentMap, zoom }) {
   useEventHandlers({ instance: parentMap }, handlers);
 
   return <Rectangle bounds={bounds} pathOptions={BOUNDS_STYLE} />;
-}
+};
 
-function MinimapControl({ position, zoom }) {
+const MinimapControl = ({ position, zoom }) => {
   const parentMap = useMap();
   const mapZoom = zoom || 0;
 
@@ -71,38 +73,91 @@ function MinimapControl({ position, zoom }) {
       <div className="leaflet-control leaflet-bar">{minimap}</div>
     </div>
   );
-}
+};
+
+const MapRefreshing = (props) => {
+  const map = useMap();
+  map.setView(props.center, props.zoom);
+  return null;
+};
 
 const MapLocation = ({
   data: city,
+  markerData = [],
   zoom = 9,
   minimap = false,
   popup = false,
+  zoomControl = true,
+  dragging = true,
 }) => {
-  return (
-    <MapContainer
-      center={[city.lat, city.lon]}
-      zoom={zoom}
-      scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+  const iconPrimary = L.icon({
+    iconUrl: "/assets/leaflet/images/marker-quest-red.svg",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [0, -40],
+    shadowUrl: "/assets/leaflet/images/marker-shadow.png",
+    shadowSize: [41, 41],
+    shadowAnchor: [13, 41],
+  });
+  const iconSecondary = L.icon({
+    iconUrl: "/assets/leaflet/images/marker-quest-blu.svg",
+    iconSize: [20, 32.8],
+    iconAnchor: [10, 32.8],
+    popupAnchor: [0, -32],
+    shadowUrl: "/assets/leaflet/images/marker-shadow.png",
+    shadowSize: [41, 41],
+    shadowAnchor: [13, 41],
+  });
 
-      <Marker position={[city.lat, city.lon]}>
+  const markers =
+    markerData.length > 1 ? (
+      markerData.map((marker, idx) => (
+        <Marker
+          key={idx}
+          position={[marker.lat, marker.lon]}
+          icon={idx === 0 ? iconPrimary : iconSecondary}>
+          {popup && (
+            <Popup>
+              <Link
+                to={`/${encodeURIComponent(marker.name)}/${marker.lat}/${
+                  marker.lon
+                }/now`}>
+                {marker.name} <br />
+                <span>kliknij aby sprawdzić pogodę</span>
+              </Link>
+            </Popup>
+          )}
+        </Marker>
+      ))
+    ) : (
+      <Marker position={[city.lat, city.lon]} icon={iconPrimary}>
         {popup && (
           <Popup>
             <Link
-              to={`/${encodeURIComponent(city.name)}/${city.lat}/${
-                city.lon
-              }/now`}>
-              {city.local_names?.pl || city.name} - kliknij aby zobaczyć jaka
-              pogoda
+              to={`/${encodeURIComponent(city?.local_names?.pl || city.name)}/${
+                city.lat
+              }/${city.lon}/now`}>
+              {city?.local_names?.pl || city.name} <br />
+              <span>kliknij aby sprawdzić pogodę</span>
             </Link>
           </Popup>
         )}
       </Marker>
+    );
 
+  return (
+    <MapContainer
+      center={[city.lat, city.lon]}
+      zoom={zoom}
+      scrollWheelZoom={false}
+      zoomControl={zoomControl}
+      dragging={dragging}>
+      <MapRefreshing center={[city.lat, city.lon]} zoom={zoom} />
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      {markers}
       {minimap && <MinimapControl position="topright" />}
     </MapContainer>
   );
