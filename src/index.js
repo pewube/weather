@@ -6,12 +6,12 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import reportWebVitals from "./reportWebVitals";
 
 import "./scss/index.scss";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 import App from "./routes/App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import AppProvider from "./context/AppContext";
 import CitiesFound, { loader as citiesLoader } from "./routes/CitiesFound";
 import CurrentWeather from "./routes/CurrentWeather";
@@ -54,7 +54,7 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.register();
