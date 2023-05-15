@@ -34,7 +34,7 @@
 
     &:active {
       color: #fff;
-      text-shadow: 0 0 5px #000;
+      text-shadow: 0 0 5px $shadowTxtActive;
     }
   }
 
@@ -42,22 +42,24 @@
     flex-grow: 0;
 
     width: $btnDimension;
-    margin-left: 0.5rem;
+    margin-left: 0.25rem;
   }
 
   &__name {
     margin-right: 1rem;
     flex-grow: 1;
-    p:first-of-type {
+    &__name {
       font-weight: 700;
+      transition: 0.2s;
     }
-    p:last-of-type {
+    &__state {
       font-size: 0.75rem;
     }
   }
 
   &__country {
     font-size: 0.875rem;
+    text-align: center;
 
     &__flag {
       height: 0.875rem;
@@ -67,6 +69,11 @@
 }
 
 @media (hover: hover) {
+  .city__link:hover:not(:active) {
+    .city__name__name {
+      color: $colorFocus;
+    }
+  }
   .city__btn:hover:not(:active) {
     color: $colorFocus;
   }

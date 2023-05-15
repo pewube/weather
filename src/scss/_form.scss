@@ -35,7 +35,9 @@
       top: 0;
       right: 30%;
 
-      color: white;
+      .material-symbols-outlined path {
+        fill: #fff;
+      }
     }
 
     &:focus {

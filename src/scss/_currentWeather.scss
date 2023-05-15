@@ -1,120 +1,103 @@
 @import "typography";
 
-.result-current {
-  padding: 0 10px;
-  margin: 20px 0 30px;
+.current {
+  max-width: 475px;
+  padding: 0 5px;
+  margin: 20px -5px 30px;
   overflow: hidden;
 
-  grid-area: current;
-
-  &--err {
-    &__title {
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 400;
-      text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 4px #000,
-        0px 0px 6px #000;
-    }
-  }
-
-  &__span--country {
-    font-size: 1.3rem;
-  }
-
   &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
     color: #fff;
-    text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 4px #000,
-      0px 0px 6px #000;
+    text-shadow: $shadowTxt;
     margin-bottom: 10px;
 
-    &__subtitle {
-      margin-bottom: 15px;
-      font-size: 0.8rem;
-    }
     &__info {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    &__temp-info {
       padding-right: 10px;
       padding-bottom: 15px;
-    }
 
-    &__temp-info__current {
-      font-size: 2rem;
-      font-weight: bold;
-      line-height: normal;
+      &__current {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: normal;
+      }
     }
-
     &__icon-weather {
       width: 30%;
-      &__img {
-        width: 100%;
-      }
+      height: auto;
+      max-width: 125px;
     }
   }
 
-  &__details-container {
+  &__details {
     display: flex;
     flex-wrap: wrap;
     color: #fff;
-    text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 4px #000,
-      0px 0px 6px #000;
-  }
+    text-shadow: $shadowTxt;
 
-  &__details__par,
-  &__details__par--wide {
-    font-size: 1.1rem;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-  }
+    &__par,
+    &__par--wide {
+      display: flex;
+      align-items: center;
 
-  &__details__par {
-    width: 50%;
-  }
+      min-height: 45px;
+      margin-bottom: 0;
 
-  &__details__svg {
-    height: 25px;
-    margin: 4px 15px 4px 0;
-    fill: #fff;
-    filter: drop-shadow(0px 0px 1px #000) drop-shadow(0px 0px 2px #000)
-      drop-shadow(0px 0px 2px #000);
-  }
+      font-size: 1.1rem;
+    }
 
-  &__details__par--wide {
-    width: 100%;
-  }
-}
+    &__par {
+      width: 50%;
+    }
 
-@media (min-width: 640px) {
-  .result-current {
-    margin: 0;
+    &__par--wide {
+      width: 100%;
+    }
 
-    &--err {
-      &__title {
-        font-size: 2rem;
+    &__svg {
+      width: auto;
+      height: 25px;
+      margin: 0 15px 5px 0;
+      fill: #fff;
+      filter: $shadowStrongSvg;
+
+      &.wind-direction {
+        margin: 0;
+        height: 18px;
+        vertical-align: baseline;
       }
+    }
+  }
+
+  &__data-info {
+    margin-top: 3rem;
+    color: #fff;
+    text-shadow: $shadowTxt;
+
+    p {
+      margin-bottom: 4px;
+      font-size: 0.7rem;
     }
   }
 }
 
 @media (min-width: 768px) {
-  .result-current {
-    margin: 0;
+  .current {
+    &__details {
+      &__par,
+      &__par--wide {
+        min-height: 50px;
+      }
+    }
 
     &__details__svg {
       height: 30px;
-      margin: 10px 15px 10px 0;
-    }
-    &__header {
-      &__icon-weather {
-        width: 30%;
-        padding-right: 10px;
-        &__img {
-          width: 100%;
-        }
+
+      &.wind-direction {
+        height: 22px;
       }
     }
   }

@@ -1,9 +1,7 @@
 .nav__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
-  column-gap: 10px;
   grid-column-gap: 10px; //Safari <12
-  row-gap: 10px;
   grid-row-gap: 10px; //Safari <12
 }
 
@@ -24,5 +22,11 @@
   }
   .nav__item {
     width: 100%;
+  }
+
+  .nav__item__link {
+    &.active {
+      box-shadow: 7px 0 1px 0 $colorFocus;
+    }
   }
 }

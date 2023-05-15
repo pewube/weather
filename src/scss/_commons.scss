@@ -4,13 +4,15 @@ button {
   transition: 0.2s;
 }
 a:active,
-a:visited {
+a:visited,
+a:focus {
   outline: none;
 }
 
 button:focus-visible,
 a:focus-visible {
   box-shadow: 0 0 5px 2px $colorFocus;
+  outline: none;
 }
 
 p {
@@ -28,6 +30,24 @@ p {
   background-color: $bgcInput;
 }
 
+.ml-5 {
+  margin-left: 5px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.material-symbols-outlined {
+  path,
+  g {
+    transition: 0.2s;
+  }
+}
+
 .btn-primary,
 .btn-clear {
   display: inline-flex;
@@ -41,12 +61,16 @@ p {
   color: #000;
 
   .material-symbols-outlined {
-    font-size: 26px;
+    width: 26px;
   }
 
   &:active {
     background-color: $bgcInput;
     color: #fff;
+
+    .material-symbols-outlined path {
+      fill: #fff;
+    }
   }
 }
 
@@ -75,5 +99,9 @@ p {
   .btn-primary:hover:not(:active),
   .btn-clear:hover:not(:active) {
     color: $colorFocus;
+
+    .material-symbols-outlined path {
+      fill: $colorFocus;
+    }
   }
 }
