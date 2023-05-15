@@ -5,8 +5,10 @@ import DailyForecast from "../components/DailyForecast";
 const Forecast48Hours = () => {
   const { weatherData } = useContext(AppContext);
 
-  const hourForecasts = weatherData?.forecast?.daily?.map((item) => (
-    <DailyForecast key={item.dt} data={item} />
+  const hourForecasts = weatherData?.forecast?.daily?.map((item, idx) => (
+    <li key={idx}>
+      <DailyForecast key={item.dt} data={item} />
+    </li>
   ));
 
   return (
