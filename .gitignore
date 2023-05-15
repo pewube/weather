@@ -11,6 +11,9 @@
 # production
 /build
 
+#settings
+config.js
+
 # misc
 .DS_Store
 .env.local
@@ -24,7 +27,7 @@ yarn-error.log*
 
 yahoo.txt
 api-key.txt
-config.js
+
 App.test.js
 setupTests.js
 .htaccess

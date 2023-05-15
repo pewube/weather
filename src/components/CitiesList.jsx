@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import MapLocation from "./MapLocation";
 
-import formatCityDetails from "../formatCityDetails";
+import formatCityDetails from "../utils/formatCityDetails";
 
 const CitiesList = ({ data }) => {
   const { setAppBackground, setModal } = useContext(AppContext);

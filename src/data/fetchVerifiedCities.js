@@ -1,6 +1,6 @@
-import { apiKey } from "./config";
+import { apiKey } from "../settings/config";
 
-import verifyCitiesFound from "./verifyCitiesFound";
+import verifyCitiesFound from "../utils/verifyCitiesFound";
 
 const fetchVerifiedCities = async (params) => {
   const apiGeocoding = `https://api.openweathermap.org/geo/1.0/direct?q=${params.city}&limit=5&appid=${apiKey}&units=metric&lang=pl`;

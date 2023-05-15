@@ -1,8 +1,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 
-import adjustWeatherIcon from "../adjustWeatherIcon";
-import formatDayName from "../formatDayName";
-import formatWindDirection from "../formatWindDirection";
+import adjustWeatherIcon from "../utils/adjustWeatherIcon";
+import formatDayName from "../utils/formatDayName";
+import formatWindDirection from "../utils/formatWindDirection";
 
 const HourlyForecast = (props) => {
   const [detailsVisible, setDetailsVisible] = useState(false);

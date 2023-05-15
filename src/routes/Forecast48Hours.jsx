@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import HourlyForecast from "../components/HourlyForecast";
-import formatDayList from "../formatDayList";
+import formatDayList from "../utils/formatDayList";
 
 const Forecast48Hours = () => {
   const { weatherData } = useContext(AppContext);

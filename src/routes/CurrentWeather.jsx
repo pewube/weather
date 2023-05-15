@@ -2,8 +2,8 @@ import { useContext } from "react";
 
 import { AppContext } from "../context/AppContext";
 
-import adjustWeatherIcon from "../adjustWeatherIcon";
-import formatWindDirection from "../formatWindDirection";
+import adjustWeatherIcon from "../utils/adjustWeatherIcon";
+import formatWindDirection from "../utils/formatWindDirection";
 
 const CurrentWeather = () => {
   const { weatherData } = useContext(AppContext);

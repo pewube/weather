@@ -3,7 +3,7 @@ import { Outlet, useLoaderData, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import MapLocation from "../components/MapLocation";
 
-import fetchWeatherData from "../fetchWeatherData";
+import fetchWeatherData from "../data/fetchWeatherData";
 
 export async function loader({ params }) {
   return await fetchWeatherData(params);

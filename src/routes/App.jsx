@@ -8,7 +8,7 @@ import Modal from "../components/Modal";
 import Navigation from "../components/Navigation";
 import Spinner from "../components/Spinner";
 
-import adjustBgRes from "../adjustBgRes";
+import adjustBgRes from "../utils/adjustBgRes";
 
 const App = () => {
   const params = useParams();

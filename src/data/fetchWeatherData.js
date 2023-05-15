@@ -1,4 +1,4 @@
-import { apiKey } from "./config";
+import { apiKey } from "../settings/config";
 
 const fetchWeatherData = async (params) => {
   const apiCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${params.lat}&lon=${params.lon}&appid=${apiKey}&units=metric&lang=pl`;
