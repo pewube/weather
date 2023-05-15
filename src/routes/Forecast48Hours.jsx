@@ -17,8 +17,8 @@ const Forecast48Hours = () => {
   };
 
   const forecastList = dayList
-    ? dayList.map((day, index) => (
-        <li key={index} className="hours-48__day">
+    ? dayList.map((day, idx) => (
+        <li key={idx} className="hours-48__day">
           <h3 className="hours-48__day__header">{day}</h3>
           {hourlyForecastsPerDay(day)}
         </li>

@@ -52,8 +52,8 @@ const CitiesList = ({ data }) => {
     setModal({ visible: true, header: modalHeader, body: modalBody });
   };
 
-  const citiesList = cities?.map((city, index) => (
-    <li key={index} className="cities-list__item city">
+  const citiesList = cities?.map((city, idx) => (
+    <li key={idx} className="cities-list__item city">
       <NavLink
         to={`/${encodeURIComponent(city?.local_names?.pl || city.name)}/${
           city.lat
