@@ -1,8 +1,18 @@
 $borderRadius: 5px;
-$btnDimension: 44px;
+$btnDimension: 48px;
 
 $primaryFontFamily: "Lato", sans-serif;
 
 $colorFocus: #fbff00;
-$bgcText: rgba(255, 255, 255, 0.7);
+$colorLightGray: #bbb;
+$bgcText: rgba(255, 255, 255, 0.9);
 $bgcInput: rgba(0, 0, 0, 0.5);
+
+$shadowTxt: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 4px #000,
+  0px 0px 4px #000;
+$shadowTxtActive: 0px 0px 2px $colorFocus, 0px 0px 2px $colorFocus,
+  0px 0px 4px $colorFocus, 0px 0px 6px $colorFocus;
+
+$shadowSvg: drop-shadow(0px 0px 1px #000) drop-shadow(0px 0px 2px #000);
+$shadowStrongSvg: drop-shadow(0px 0px 1px #000) drop-shadow(0px 0px 2px #000)
+  drop-shadow(0px 0px 2px #000);
