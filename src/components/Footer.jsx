@@ -1,8 +1,10 @@
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="app__footer">
       <p className="footer">
-        Dane pogodowe: openweathermap.org &copy; pewube.eu{" "}
+        &copy; {year} pewube.eu | dane pogodowe: openweathermap.org
       </p>
     </footer>
   );
