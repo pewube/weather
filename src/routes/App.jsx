@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, Outlet, useNavigation, useParams } from "react-router-dom";
 
 import { AppContext } from "../context/AppContext";
@@ -14,8 +14,13 @@ const App = () => {
   const params = useParams();
   const navigation = useNavigation();
 
-  const { appBackground, setAppBackground, setInputError } =
-    useContext(AppContext);
+  const {
+    appBackground,
+    bgImageLoaded,
+    setAppBackground,
+    setInputError,
+    setBgImageLoaded,
+  } = useContext(AppContext);
 
   const bgRes = adjustBgRes();
 
@@ -24,6 +29,9 @@ const App = () => {
       className="app-bg"
       src={`/assets/img/bg-${bgRes}-${appBackground}.webp`}
       alt=""
+      onLoad={() => {
+        setBgImageLoaded(true);
+      }}
     />
   );
 
@@ -48,6 +56,10 @@ const App = () => {
     setInputError({ is: false, statusText: "" });
   };
 
+  useEffect(() => {
+    setBgImageLoaded(false);
+  }, [appBackground]);
+
   return (
     <>
       {bgImage}
@@ -67,7 +79,7 @@ const App = () => {
       </div>
       <Modal />
       <Footer />
-      {navigation.state === "loading" && <Spinner />}
+      {(navigation.state === "loading" || !bgImageLoaded) && <Spinner />}
     </>
   );
 };
