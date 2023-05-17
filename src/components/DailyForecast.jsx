@@ -3,6 +3,10 @@ import { useEffect, useId, useRef, useState } from "react";
 import adjustWeatherIcon from "../utils/adjustWeatherIcon";
 import formatWindDirection from "../utils/formatWindDirection";
 
+import { ReactComponent as WindDirection } from "../assets/images/icons/info/ico-navigation.svg";
+import { ReactComponent as BtnExpandMore } from "../assets/images/icons/btn/btn-expand_more.svg";
+import { ReactComponent as BtnExpandLess } from "../assets/images/icons/btn/btn-expand_less.svg";
+
 const DailyForecast = (props) => {
   const [detailsVisible, setDetailsVisible] = useState(false);
   const containerRef = useRef(); //details container
@@ -38,7 +42,7 @@ const DailyForecast = (props) => {
   });
 
   const weatherIconCode = adjustWeatherIcon(weather[0]);
-  const imgWeatherSrcValue = `/assets/img/ico-${weatherIconCode}.svg`;
+  const imgWeatherSrcValue = `/assets/images/icons/weather/ico-${weatherIconCode}.svg`;
 
   useEffect(() => {
     if (detailsRef.current) {
@@ -80,21 +84,9 @@ const DailyForecast = (props) => {
           aria-controls={`collapse-hour-${detailsId}`}
           aria-label={detailsVisible ? "Hide details" : "Show details"}>
           {detailsVisible ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="material-symbols-outlined"
-              viewBox="0 96 960 960"
-              width="24">
-              <path d="m296 711-56-56 240-240 240 240-56 56-184-184-184 184Z" />
-            </svg>
+            <BtnExpandLess className="material-symbols-outlined" />
           ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="material-symbols-outlined"
-              viewBox="0 96 960 960"
-              width="24">
-              <path d="M480 711 240 471l56-56 184 184 184-184 56 56-240 240Z" />
-            </svg>
+            <BtnExpandMore className="material-symbols-outlined" />
           )}
         </button>
       </header>
@@ -148,18 +140,13 @@ const DailyForecast = (props) => {
                 {wind_gust && ` - ${(wind_gust * 3.6).toFixed(1)}`} km/h
               </strong>
               <span className="ml-10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                <WindDirection
                   className="wind-direction"
-                  viewBox="0 96 960 960"
-                  width="24"
-                  height="24"
                   style={{
                     transform: `rotate(${wind_deg - 180}deg)`,
                     transformOrigin: "50% 50%",
-                  }}>
-                  <path d="m200 936-40-40 320-720 320 720-40 40-280-120-280 120Z" />
-                </svg>
+                  }}
+                />
               </span>
               <strong className="ml-5">{formatWindDirection(wind_deg)}</strong>
             </p>

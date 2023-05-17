@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { AppContext } from "../context/AppContext";
 
+import { ReactComponent as BtnClose } from "../assets/images/icons/btn/btn-close.svg";
+
 const Form = () => {
   const navigate = useNavigate();
 
@@ -62,13 +64,7 @@ const Form = () => {
           className="form__input__btn btn-clear"
           type="reset"
           aria-label="Reset input text">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="material-symbols-outlined"
-            viewBox="0 96 960 960"
-            width="24">
-            <path d="m256 856-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-          </svg>
+          <BtnClose className="material-symbols-outlined" />
         </button>
         <button className="form__btn btn-primary">Szukaj</button>
         {inputErrorInfo}
