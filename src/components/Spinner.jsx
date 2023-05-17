@@ -1,7 +1,18 @@
-const Spinner = () => {
+const Spinner = ({ page = true, size = 10 }) => {
   return (
-    <div className="spinner-container">
-      <div className="spinner"></div>
+    <div
+      className={page ? "spinner-container-page" : "spinner-container-img"}
+      style={{ fontSize: `${size}px` }}>
+      <div className="spinner">
+        <div className="spinner-ray"></div>
+        <div className="spinner-ray"></div>
+        <div className="spinner-ray"></div>
+        <div className="spinner-ray"></div>
+        <div className="spinner-ray"></div>
+        <div className="spinner-ray"></div>
+        <div className="spinner-ray"></div>
+        <div className="spinner-ray"></div>
+      </div>
     </div>
   );
 };
