@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import "./scss/index.scss";
+import "./assets/scss/index.scss";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 import App from "./routes/App";

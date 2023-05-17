@@ -91,20 +91,20 @@ const MapLocation = ({
   dragging = true,
 }) => {
   const iconPrimary = L.icon({
-    iconUrl: "/assets/leaflet/images/marker-quest-red.svg",
+    iconUrl: "/assets/images/leaflet/marker-quest-red.svg",
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [0, -40],
-    shadowUrl: "/assets/leaflet/images/marker-shadow.png",
+    shadowUrl: "/assets/images/leaflet/marker-shadow.png",
     shadowSize: [41, 41],
     shadowAnchor: [13, 41],
   });
   const iconSecondary = L.icon({
-    iconUrl: "/assets/leaflet/images/marker-quest-blu.svg",
+    iconUrl: "/assets/images/leaflet/marker-quest-blu.svg",
     iconSize: [20, 32.8],
     iconAnchor: [10, 32.8],
     popupAnchor: [0, -32],
-    shadowUrl: "/assets/leaflet/images/marker-shadow.png",
+    shadowUrl: "/assets/images/leaflet/marker-shadow.png",
     shadowSize: [41, 41],
     shadowAnchor: [13, 41],
   });

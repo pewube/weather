@@ -27,7 +27,7 @@ const App = () => {
   const bgImage = (
     <img
       className="app-bg"
-      src={`/assets/img/bg-${bgRes}-${appBackground}.webp`}
+      src={`/assets/images/bg/bg-${bgRes}-${appBackground}.webp`}
       alt=""
       onLoad={() => {
         setBgImageLoaded(true);
