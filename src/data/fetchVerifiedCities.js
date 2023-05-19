@@ -25,8 +25,6 @@ const fetchVerifiedCities = async (params) => {
       });
     });
 
-  console.log("fetchMatchedCities ", citiesFound);
-
   const citiesVerified = verifyCitiesFound(citiesFound, params.city);
 
   return citiesVerified;

@@ -5,19 +5,19 @@ import { AppContext } from "../context/AppContext";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  const { setAppBackground, setInputError } = useContext(AppContext);
   const navigate = useNavigate();
+  const { setAppBackground, setInputError } = useContext(AppContext);
 
-  const statusText = error.statusText ? (
-    <p>{decodeURIComponent(error.statusText)}</p>
-  ) : (
-    <p>Wystąpił nieznany problem z przetwarzaniem danych.</p>
-  );
   // status 299 => server status = 200 but there's no data to process
   const status =
     error.status && error.status !== 299 ? (
       <p>Odpowiedź serwera: {error.status}</p>
     ) : null;
+  const statusText = error.statusText ? (
+    <p>{decodeURIComponent(error.statusText)}</p>
+  ) : (
+    <p>Wystąpił nieznany problem z przetwarzaniem danych.</p>
+  );
 
   useEffect(() => {
     setAppBackground("home");

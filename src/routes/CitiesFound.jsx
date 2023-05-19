@@ -1,8 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
-import fetchVerifiedCities from "../data/fetchVerifiedCities";
-
 import CitiesList from "../components/CitiesList";
+import fetchVerifiedCities from "../data/fetchVerifiedCities";
 
 export async function loader({ params }) {
   return await fetchVerifiedCities(params);

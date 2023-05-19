@@ -7,11 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import "./assets/scss/index.scss";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
-
-import App from "./routes/App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import App from "./routes/App";
 import AppProvider from "./context/AppContext";
 import CitiesFound, { loader as citiesLoader } from "./routes/CitiesFound";
 import CurrentWeather from "./routes/CurrentWeather";
@@ -19,6 +16,9 @@ import ErrorPage from "./routes/ErrorPage";
 import Forecast, { loader as weatherLoader } from "./routes/Forecast";
 import Forecast48Hours from "./routes/Forecast48Hours";
 import Forecast8Days from "./routes/Forecast8Days";
+
+import "./assets/scss/index.scss";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

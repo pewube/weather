@@ -1,9 +1,9 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Outlet, useLoaderData, useParams } from "react-router-dom";
-import { AppContext } from "../context/AppContext";
-import MapLocation from "../components/MapLocation";
 
+import { AppContext } from "../context/AppContext";
 import fetchWeatherData from "../data/fetchWeatherData";
+import MapLocation from "../components/MapLocation";
 
 import { ReactComponent as BtnMap } from "../assets/images/icons/btn/btn-map.svg";
 
@@ -13,12 +13,11 @@ export async function loader({ params }) {
 
 const Forecast = () => {
   const data = useLoaderData();
+  const [hiddenMap, setHiddenMap] = useState(true);
+  const mapData = { lat: data.forecast.lat, lon: data.forecast.lon };
+  const mapRef = useRef();
   const params = useParams();
   const { setAppBackground, setModal, setWeatherData } = useContext(AppContext);
-  const [hiddenMap, setHiddenMap] = useState(true);
-  const mapRef = useRef();
-
-  const mapData = { lat: data.forecast.lat, lon: data.forecast.lon };
 
   const handleMapBtn = () => setHiddenMap((hiddenMap) => !hiddenMap);
 

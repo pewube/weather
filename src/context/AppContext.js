@@ -4,8 +4,8 @@ export const AppContext = createContext();
 
 const AppProvider = (props) => {
   const [appBackground, setAppBackground] = useState("home");
-  const [inputError, setInputError] = useState({ is: false, info: "" });
   const [bgImageLoaded, setBgImageLoaded] = useState(false);
+  const [inputError, setInputError] = useState({ is: false, info: "" });
   const [modal, setModal] = useState({
     visible: false,
     header: {},
@@ -17,13 +17,13 @@ const AppProvider = (props) => {
     <AppContext.Provider
       value={{
         appBackground,
-        inputError,
         bgImageLoaded,
+        inputError,
         modal,
         weatherData,
         setAppBackground,
-        setInputError,
         setBgImageLoaded,
+        setInputError,
         setModal,
         setWeatherData,
       }}>

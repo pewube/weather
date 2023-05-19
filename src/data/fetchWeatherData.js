@@ -51,8 +51,6 @@ const fetchWeatherData = async (params) => {
     forecast: weatherForecast,
   };
 
-  console.log("combined data: ", combinedData);
-
   return combinedData;
 };
 

@@ -1,14 +1,15 @@
 import { useContext } from "react";
+
 import { AppContext } from "../context/AppContext";
-import HourlyForecast from "../components/HourlyForecast";
 import formatDayList from "../utils/formatDayList";
+import HourlyForecast from "../components/HourlyForecast";
 
 const Forecast48Hours = () => {
   const { weatherData } = useContext(AppContext);
 
   const dayList = formatDayList(weatherData?.forecast?.hourly);
 
-  let hourlyForecastsPerDay = (day) => {
+  const hourlyForecastsPerDay = (day) => {
     const hourlyForecasts = weatherData?.forecast?.hourly?.map((item) => (
       <HourlyForecast key={item.dt} data={item} group={day} />
     ));

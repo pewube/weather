@@ -7,9 +7,7 @@ import { ReactComponent as BtnClose } from "../assets/images/icons/btn/btn-close
 
 const Form = () => {
   const navigate = useNavigate();
-
   const inputRef = useRef();
-
   const { inputError, setInputError } = useContext(AppContext);
 
   const handleSubmit = (e) => {

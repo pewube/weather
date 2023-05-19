@@ -1,7 +1,7 @@
 {
   "homepage": "https://pogoda.pewube.eu/",
   "name": "jaka-pogoda-2",
-  "version": "3.0.1",
+  "version": "3.0.4",
   "private": true,
   "dependencies": {
     "flag-icons": "^6.6.6",

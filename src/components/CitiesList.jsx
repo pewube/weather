@@ -2,9 +2,8 @@ import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { AppContext } from "../context/AppContext";
-import MapLocation from "./MapLocation";
-
 import formatCityDetails from "../utils/formatCityDetails";
+import MapLocation from "./MapLocation";
 
 import { ReactComponent as BtnMap } from "../assets/images/icons/btn/btn-map.svg";
 
@@ -36,11 +35,7 @@ const CitiesList = ({ data }) => {
         });
       }
     }
-    const modalHeader = (
-      <h2 className="modal__header__title">
-        {city?.local_names?.pl || city.name}
-      </h2>
-    );
+
     const modalBody = (
       <MapLocation
         data={city}
@@ -49,6 +44,11 @@ const CitiesList = ({ data }) => {
         minimap={true}
         popup={true}
       />
+    );
+    const modalHeader = (
+      <h2 className="modal__header__title">
+        {city?.local_names?.pl || city.name}
+      </h2>
     );
 
     setModal({ visible: true, header: modalHeader, body: modalBody });

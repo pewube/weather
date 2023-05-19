@@ -9,7 +9,6 @@ import {
 } from "react-leaflet";
 import { useEventHandlers } from "@react-leaflet/core";
 import { Link } from "react-router-dom";
-
 import L from "leaflet";
 
 // Classes used by Leaflet to position controls

@@ -1,18 +1,17 @@
 import { useContext } from "react";
 
-import { AppContext } from "../context/AppContext";
-
 import adjustWeatherIcon from "../utils/adjustWeatherIcon";
+import { AppContext } from "../context/AppContext";
 import formatWindDirection from "../utils/formatWindDirection";
 
-import { ReactComponent as WindPower } from "../assets/images/icons/info/ico-wind_power.svg";
-import { ReactComponent as WindDirection } from "../assets/images/icons/info/ico-navigation.svg";
-import { ReactComponent as Pressure } from "../assets/images/icons/info/ico-bar.svg";
 import { ReactComponent as Clouds } from "../assets/images/icons/info/ico-clouds.svg";
-import { ReactComponent as Visibility } from "../assets/images/icons/info/ico-visibility.svg";
 import { ReactComponent as Humidity } from "../assets/images/icons/info/ico-humid.svg";
+import { ReactComponent as Pressure } from "../assets/images/icons/info/ico-bar.svg";
 import { ReactComponent as Sunrise } from "../assets/images/icons/info/ico-sunrise.svg";
 import { ReactComponent as Sunset } from "../assets/images/icons/info/ico-sunset.svg";
+import { ReactComponent as Visibility } from "../assets/images/icons/info/ico-visibility.svg";
+import { ReactComponent as WindDirection } from "../assets/images/icons/info/ico-navigation.svg";
+import { ReactComponent as WindPower } from "../assets/images/icons/info/ico-wind_power.svg";
 
 const CurrentWeather = () => {
   const { weatherData } = useContext(AppContext);

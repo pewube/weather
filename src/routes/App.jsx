@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Link, Outlet, useNavigation, useParams } from "react-router-dom";
 
+import adjustBgRes from "../utils/adjustBgRes";
 import { AppContext } from "../context/AppContext";
 import Footer from "../components/Footer";
 import Form from "../components/Form";
@@ -8,12 +9,7 @@ import Modal from "../components/Modal";
 import Navigation from "../components/Navigation";
 import Spinner from "../components/Spinner";
 
-import adjustBgRes from "../utils/adjustBgRes";
-
 const App = () => {
-  const params = useParams();
-  const navigation = useNavigation();
-
   const {
     appBackground,
     bgImageLoaded,
@@ -21,6 +17,8 @@ const App = () => {
     setInputError,
     setBgImageLoaded,
   } = useContext(AppContext);
+  const navigation = useNavigation();
+  const params = useParams();
 
   const bgRes = adjustBgRes();
 
@@ -34,7 +32,6 @@ const App = () => {
       }}
     />
   );
-
   const headerClassName =
     Object.keys(params).length === 0 ? "header header--start" : "header";
 
