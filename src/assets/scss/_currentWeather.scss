@@ -1,0 +1,104 @@
+@import "typography";
+
+.current {
+  max-width: 475px;
+  padding: 0 5px;
+  margin: 20px -5px 30px;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    color: #fff;
+    text-shadow: $shadowTxt;
+    margin-bottom: 10px;
+
+    &__info {
+      padding-right: 10px;
+      padding-bottom: 15px;
+
+      &__current {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: normal;
+      }
+    }
+    &__icon-weather {
+      width: 30%;
+      height: auto;
+      max-width: 125px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    text-shadow: $shadowTxt;
+
+    &__par,
+    &__par--wide {
+      display: flex;
+      align-items: center;
+
+      min-height: 45px;
+      margin-bottom: 0;
+
+      font-size: 1.1rem;
+    }
+
+    &__par {
+      width: 50%;
+    }
+
+    &__par--wide {
+      width: 100%;
+    }
+
+    &__svg {
+      width: auto;
+      height: 25px;
+      margin: 0 15px 5px 0;
+      fill: #fff;
+      filter: $shadowStrongSvg;
+
+      &.wind-direction {
+        margin: 0;
+        height: 18px;
+        vertical-align: baseline;
+      }
+    }
+  }
+
+  &__data-info {
+    margin-top: 3rem;
+    color: #fff;
+    text-shadow: $shadowTxt;
+
+    p {
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .current {
+    &__details {
+      &__par,
+      &__par--wide {
+        min-height: 50px;
+      }
+    }
+
+    &__details__svg {
+      height: 30px;
+
+      &.wind-direction {
+        height: 22px;
+      }
+    }
+  }
+}

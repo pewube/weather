@@ -1,0 +1,60 @@
+@import "variables";
+@import "typography";
+
+.form {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__input,
+  &__btn {
+    min-height: $btnDimension;
+    border: none;
+    border-radius: $borderRadius;
+    font-family: $primaryFontFamily;
+    font-size: 1.1rem;
+  }
+
+  &__input {
+    width: 70%;
+    padding: 7px $btnDimension 7px 15px;
+    background-color: $bgcInput;
+
+    color: white;
+
+    &::placeholder {
+      color: $bgcText;
+    }
+
+    &__btn {
+      width: $btnDimension;
+
+      position: absolute;
+      top: 0;
+      right: 30%;
+
+      .material-symbols-outlined path {
+        fill: #fff;
+      }
+    }
+
+    &:focus {
+      background-color: $bgcText;
+      color: #000;
+    }
+  }
+
+  &__info {
+    margin-top: 20px;
+  }
+
+  &__btn {
+    flex-grow: 1;
+    padding: 0 5px;
+    margin-left: 10px;
+
+    font-weight: 700;
+  }
+}

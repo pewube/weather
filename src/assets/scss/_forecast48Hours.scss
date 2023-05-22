@@ -1,0 +1,19 @@
+.hours-48 {
+  max-width: 475px;
+  margin: 20px 0 30px;
+  overflow: hidden;
+
+  &__header {
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid $colorLightGray;
+  }
+
+  &__day {
+    margin-top: 1.5rem;
+
+    &__header {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "reset";
+@import "variables";
+@import "fonts";
+@import "typography";
+@import "commons";
+@import "app";
+@import "navigation";
+@import "citiesList";
+@import "footer";
+@import "form";
+@import "header";
+@import "forecast";
+@import "forecast48Hours";
+@import "hourlyForecast";
+@import "currentWeather";
+@import "forecast8Days";
+@import "dailyForecast";
+@import "modal";
+@import "mapLocation";
+@import "spinner";
+@import "leaflet";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+}

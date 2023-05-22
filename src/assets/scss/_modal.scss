@@ -1,0 +1,42 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 98%;
+    max-width: 700px;
+    padding: 20px;
+    border-radius: $borderRadius;
+    background-color: #fff;
+  }
+
+  &__header {
+    margin-right: $btnDimension + 5px;
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+
+    width: $btnDimension;
+  }
+
+  &__body {
+    width: 100%;
+    margin-top: 10px;
+    overflow-x: hidden;
+  }
+}

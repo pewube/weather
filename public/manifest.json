@@ -4,13 +4,25 @@
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "64x64",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo16.png",
       "type": "image/png",
-      "sizes": "192x192",
+      "sizes": "16x16",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo24.png",
+      "type": "image/png",
+      "sizes": "24x24",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo32.png",
+      "type": "image/png",
+      "sizes": "32x32",
       "purpose": "any maskable"
     },
     {
@@ -20,8 +32,8 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#ffffff",
+  "theme_color": "#0055d4",
   "background_color": "#ffffff"
 }
