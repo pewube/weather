@@ -1,0 +1,68 @@
+.app-bg {
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -10;
+
+  object-fit: cover;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.main-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header,
+.nav {
+  padding: 15px 5px;
+}
+
+.main {
+  flex-grow: 1;
+
+  padding: 15px 5px 60px;
+}
+
+@media (min-width: 360px) {
+  .header,
+  .nav {
+    padding: 20px 30px;
+  }
+
+  .main {
+    padding: 20px 30px 60px 30px;
+  }
+}
+
+@media (min-width: 576px) {
+  .header,
+  .nav {
+    padding: 20px 30px;
+  }
+
+  .main {
+    padding: 20px 30px 60px 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+  }
+
+  .nav {
+    flex-shrink: 0;
+
+    width: 250px;
+  }
+}

@@ -1,0 +1,53 @@
+html {
+  font-family: $primaryFontFamily;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.units {
+  font-size: 0.75rem;
+}
+
+.descr {
+  font-size: 0.875rem;
+}
+
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: oblique;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
