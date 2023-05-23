@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Link, Outlet, useNavigation, useParams } from "react-router-dom";
 
 import adjustBgRes from "../utils/adjustBgRes";
@@ -19,6 +19,7 @@ const App = () => {
   } = useContext(AppContext);
   const navigation = useNavigation();
   const params = useParams();
+  const bgImgRef = useRef();
 
   const bgRes = adjustBgRes();
 
@@ -30,6 +31,7 @@ const App = () => {
       onLoad={() => {
         setBgImageLoaded(true);
       }}
+      ref={bgImgRef}
     />
   );
   const headerClassName =
@@ -53,8 +55,13 @@ const App = () => {
     setInputError({ is: false, statusText: "" });
   };
 
+  const prevBgImgSrc = bgImgRef.current?.src;
+
   useEffect(() => {
-    setBgImageLoaded(false);
+    // check if the background image has changed, if so set it as unloaded
+    if (prevBgImgSrc && prevBgImgSrc !== bgImgRef.current?.src) {
+      setBgImageLoaded(false);
+    }
   }, [appBackground]);
 
   return (
