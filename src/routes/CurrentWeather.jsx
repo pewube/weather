@@ -44,13 +44,15 @@ const CurrentWeather = () => {
             <strong>{data?.weather[0].description}</strong>
           </p>
         </section>
-        <img
-          className="current__header__icon-weather"
-          src={imgWeatherSrcValue}
-          alt={data?.weather[0].description}
-          width="90"
-          height="90"
-        />
+        {weatherIconCode && (
+          <img
+            className="current__header__icon-weather"
+            src={imgWeatherSrcValue}
+            alt={data?.weather[0].description}
+            width="90"
+            height="90"
+          />
+        )}
       </header>
       <section className="current__details">
         <p className="current__details__par--wide">
