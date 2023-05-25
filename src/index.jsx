@@ -29,15 +29,21 @@ const router = createBrowserRouter(
           loader={citiesLoader}
         />
         <Route
-          path="/:city/:lat/:lon"
+          path="/:city/:country/:lat/:lon"
           element={<Forecast />}
           loader={weatherLoader}>
-          <Route path="/:city/:lat/:lon/now" element={<CurrentWeather />} />
           <Route
-            path="/:city/:lat/:lon/48-hours"
+            path="/:city/:country/:lat/:lon/now"
+            element={<CurrentWeather />}
+          />
+          <Route
+            path="/:city/:country/:lat/:lon/48-hours"
             element={<Forecast48Hours />}
           />
-          <Route path="/:city/:lat/:lon/8-days" element={<Forecast8Days />} />
+          <Route
+            path="/:city/:country/:lat/:lon/8-days"
+            element={<Forecast8Days />}
+          />
         </Route>
       </Route>
     </Route>
