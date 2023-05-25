@@ -118,9 +118,9 @@ const MapLocation = ({
           {popup && (
             <Popup>
               <Link
-                to={`/${encodeURIComponent(marker.name)}/${marker.lat}/${
-                  marker.lon
-                }/now`}>
+                to={`/${encodeURIComponent(marker.name)}/${marker.country}/${
+                  marker.lat
+                }/${marker.lon}/now`}>
                 {marker.name} <br />
                 <span>kliknij aby sprawdzić pogodę</span>
               </Link>
@@ -134,8 +134,8 @@ const MapLocation = ({
           <Popup>
             <Link
               to={`/${encodeURIComponent(city?.local_names?.pl || city.name)}/${
-                city.lat
-              }/${city.lon}/now`}>
+                city.country
+              }/${city.lat}/${city.lon}/now`}>
               {city?.local_names?.pl || city.name} <br />
               <span>kliknij aby sprawdzić pogodę</span>
             </Link>

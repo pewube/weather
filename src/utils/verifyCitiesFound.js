@@ -15,9 +15,9 @@ const verifyCitiesFound = (citiesFound, stringNotFound) => {
       citiesFound[0]?.["local_names"]?.["pl"] || citiesFound[0]["name"];
 
     return redirect(
-      `/${encodeURIComponent(cityName)}/${citiesFound[0]["lat"]}/${
-        citiesFound[0]["lon"]
-      }/now`
+      `/${encodeURIComponent(cityName)}/${citiesFound[0]["country"]}/${
+        citiesFound[0]["lat"]
+      }/${citiesFound[0]["lon"]}/now`
     );
   } else {
     let citiesVerified = [];
@@ -44,9 +44,9 @@ const verifyCitiesFound = (citiesFound, stringNotFound) => {
         citiesFound[0]?.["local_names"]?.["pl"] || citiesFound[0]["name"];
 
       return redirect(
-        `/${encodeURIComponent(cityName)}/${citiesFound[0]["lat"]}/${
-          citiesFound[0]["lon"]
-        }/now`
+        `/${encodeURIComponent(cityName)}/${citiesFound[0]["country"]}/${
+          citiesFound[0]["lat"]
+        }/${citiesFound[0]["lon"]}/now`
       );
     } else {
       return citiesVerified;
