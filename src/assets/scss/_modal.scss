@@ -6,7 +6,13 @@
 
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: $colorBgModal;
+  opacity: 0;
+  transition: 0.2s;
+
+  &.visible {
+    opacity: 1;
+  }
 
   &__content {
     position: absolute;
@@ -19,6 +25,12 @@
     padding: 20px;
     border-radius: $borderRadius;
     background-color: #fff;
+    opacity: 0;
+    transition: 0.2s;
+
+    &.visible {
+      opacity: 1;
+    }
   }
 
   &__header {
@@ -37,6 +49,19 @@
   &__body {
     width: 100%;
     margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid $colorLightGray;
     overflow-x: hidden;
+
+    .cities-list__header {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .cities-list {
+      padding: 0;
+    }
   }
 }
