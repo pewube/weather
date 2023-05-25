@@ -1,17 +1,3 @@
-@keyframes body {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes rays {
-  20% {
-    width: 2.5em;
-  }
-}
-
 .spinner-container-page {
   position: fixed;
   left: 0;
@@ -24,8 +10,7 @@
 
   width: 100vw;
   height: 100vh;
-  background-color: #0055d4;
-
+  background-color: $colorBgModal;
   font-size: 10px;
 }
 
@@ -90,5 +75,19 @@
       transform: rotate(315deg) translate(3.4em, -50%);
       animation-delay: 0.1s;
     }
+  }
+}
+
+@keyframes body {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rays {
+  20% {
+    width: 2.5em;
   }
 }
