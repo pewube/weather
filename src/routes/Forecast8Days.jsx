@@ -15,7 +15,7 @@ const Forecast48Hours = () => {
   return (
     <article className="days-8 info-box">
       <header className="days-8__header">
-        <h2>Prognoza 48-dniowa</h2>
+        <h2>Prognoza 8-dniowa</h2>
       </header>
       <ul className="days-8__list">{hourForecasts}</ul>
     </article>
