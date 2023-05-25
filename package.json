@@ -2,7 +2,7 @@
   "homepage": "https://pogoda.pewube.eu/",
   "name": "Jaka pogoda ?",
   "private": true,
-  "version": "4.0.0",
+  "version": "4.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "flag-icons": "^6.6.6",
+    "idb": "^7.1.1",
     "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
