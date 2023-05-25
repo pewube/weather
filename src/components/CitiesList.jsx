@@ -1,18 +1,15 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import { AppContext } from "../context/AppContext";
 import formatCityDetails from "../utils/formatCityDetails";
 import MapLocation from "./MapLocation";
 
+import { ReactComponent as BtnClose } from "../assets/images/icons/btn/btn-close.svg";
 import { ReactComponent as BtnMap } from "../assets/images/icons/btn/btn-map.svg";
 
-const CitiesList = ({ data }) => {
-  const { setAppBackground, setModal } = useContext(AppContext);
-
-  useEffect(() => {
-    setAppBackground("home");
-  }, [setAppBackground]);
+const CitiesList = ({ data, handleRemove = null }) => {
+  const { setModal } = useContext(AppContext);
 
   const cities = formatCityDetails(data);
 
@@ -24,12 +21,14 @@ const CitiesList = ({ data }) => {
       if (el.lat === city.lat && el.lon === city.lon) {
         markerData.unshift({
           name: el?.local_names?.pl || el.name,
+          country: el.country,
           lat: el?.lat,
           lon: el?.lon,
         });
       } else {
         markerData.push({
           name: el?.local_names?.pl || el.name,
+          country: el.country,
           lat: el?.lat,
           lon: el?.lon,
         });
@@ -55,11 +54,18 @@ const CitiesList = ({ data }) => {
   };
 
   const citiesList = cities?.map((city, idx) => (
-    <li key={idx} className="cities-list__item city">
+    <li key={city?.id || idx} className="cities-list__item city">
+      {handleRemove && city?.id && (
+        <button
+          onClick={() => handleRemove(city?.id)}
+          className="city__btn city__btn--remove btn-clear">
+          <BtnClose className="material-symbols-outlined" />
+        </button>
+      )}
       <NavLink
         to={`/${encodeURIComponent(city?.local_names?.pl || city.name)}/${
-          city.lat
-        }/${city.lon}/now`}
+          city.country
+        }/${city.lat}/${city.lon}/now`}
         className="city__link">
         <div className="city__name">
           <p className="city__name__name">
@@ -78,7 +84,7 @@ const CitiesList = ({ data }) => {
       </NavLink>
       <div className="divider-vertical"></div>
       <button
-        className="city__btn btn-clear"
+        className="city__btn city__btn--map btn-clear"
         onClick={() => handleMapBtn(city)}
         type="button"
         aria-label="Show modal with locations of all listed localities on the map. The map will be centered on the selected locality.">
