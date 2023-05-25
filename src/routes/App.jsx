@@ -1,10 +1,11 @@
-import { useContext, useEffect, useRef } from "react";
-import { Link, Outlet, useNavigation, useParams } from "react-router-dom";
+import { useContext, useLayoutEffect } from "react";
+import { Outlet, useNavigation, useParams } from "react-router-dom";
 
 import adjustBgRes from "../utils/adjustBgRes";
 import { AppContext } from "../context/AppContext";
+import { createDB } from "../data/storeFavoriteLocations";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Form from "../components/Form";
 import Modal from "../components/Modal";
 import Navigation from "../components/Navigation";
 import Spinner from "../components/Spinner";
@@ -19,7 +20,6 @@ const App = () => {
   } = useContext(AppContext);
   const navigation = useNavigation();
   const params = useParams();
-  const bgImgRef = useRef();
 
   const bgRes = adjustBgRes();
 
@@ -31,7 +31,6 @@ const App = () => {
       onLoad={() => {
         setBgImageLoaded(true);
       }}
-      ref={bgImgRef}
     />
   );
   const headerClassName =
@@ -55,27 +54,17 @@ const App = () => {
     setInputError({ is: false, statusText: "" });
   };
 
-  const prevBgImgSrc = bgImgRef.current?.src;
+  createDB();
 
-  useEffect(() => {
-    // check if the background image has changed, if so set it as unloaded
-    if (prevBgImgSrc && prevBgImgSrc !== bgImgRef.current?.src) {
-      setBgImageLoaded(false);
-    }
+  useLayoutEffect(() => {
+    setBgImageLoaded(false);
   }, [appBackground]);
 
   return (
     <>
       {bgImage}
       <header className={headerClassName}>
-        <Link
-          to="/"
-          onClick={handleHomePageLinkClick}
-          className="header__home-link"
-          aria-label="Home page">
-          <h1 className="header__title">Jaka pogoda ?</h1>
-        </Link>
-        <Form />
+        <Header handleHomeLinkClick={handleHomePageLinkClick} />
       </header>
       <div className="main-container">
         {nav}
