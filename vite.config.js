@@ -6,8 +6,8 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    host: true,
+  css: {
+    devSourcemap: true,
   },
   plugins: [
     legacy({
@@ -16,7 +16,6 @@ export default defineConfig({
     react(),
     svgr({ svgrOptions: { icon: true } }),
     VitePWA({
-      registerType: "autoUpdate",
       devOptions: {
         enabled: true,
       },
@@ -64,9 +63,13 @@ export default defineConfig({
         background_color: "#ffffff",
         lang: "pl",
       },
+      registerType: "autoUpdate",
       workbox: {
         globPatterns: ["**/*.{js,css,html,svg,ttf,woff,woff2}"],
       },
     }),
   ],
+  server: {
+    host: true,
+  },
 });
