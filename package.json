@@ -2,7 +2,7 @@
   "homepage": "https://pogoda.pewube.eu/",
   "name": "Jaka pogoda ?",
   "private": true,
-  "version": "4.0.1",
+  "version": "4.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
