@@ -1,3 +1,12 @@
+.spinner-wrapper {
+  opacity: 1;
+  transition: 0.2s;
+
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
 .spinner-container-page {
   position: fixed;
   left: 0;
@@ -12,6 +21,12 @@
   height: 100vh;
   background-color: $colorBgModal;
   font-size: 10px;
+  transition: 2s;
+  opacity: 1;
+
+  .hidden {
+    opacity: 0;
+  }
 }
 
 .spinner-container-img {
