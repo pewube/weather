@@ -1,12 +1,8 @@
-.cities-list,
-.cities-list__header {
-  width: 100%;
+.cities-list {
   margin-top: 10px;
   padding: 10px;
   border-radius: $borderRadius;
   background-color: $bgcText;
-
-  line-height: 1.2;
 }
 
 .city {
