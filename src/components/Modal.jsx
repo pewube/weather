@@ -24,21 +24,24 @@ const Modal = () => {
       modalRef.current.classList.add("visible");
       setTimeout(() => {
         contentRef.current.classList.add("visible");
-        console.log(contentRef);
       }, 300);
     }
   }, [modal]);
 
   return (
     modal.visible &&
-    modal.body && (
+    (modal.body || modal.header) && (
       <section className="modal" ref={modalRef}>
         <article className="modal__content" ref={contentRef}>
-          <header className="modal__header">{modal.header}</header>
+          {modal.header && (
+            <header className="modal__header">{modal.header}</header>
+          )}
           <button onClick={removeModal} className="modal__btn-close btn-clear">
             <BtnClose className="material-symbols-outlined" />
           </button>
-          <section className="modal__body">{modal.body}</section>
+          {modal.body && (
+            <section className="modal__body">{modal.body}</section>
+          )}
         </article>
       </section>
     )
