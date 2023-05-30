@@ -1,4 +1,10 @@
-import { useContext, useLayoutEffect } from "react";
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { Outlet, useNavigation, useParams } from "react-router-dom";
 
 import adjustBgRes from "../utils/adjustBgRes";
@@ -11,15 +17,13 @@ import Navigation from "../components/Navigation";
 import Spinner from "../components/Spinner";
 
 const App = () => {
-  const {
-    appBackground,
-    bgImageLoaded,
-    setAppBackground,
-    setInputError,
-    setBgImageLoaded,
-  } = useContext(AppContext);
+  const { appBackground, setAppBackground, setInputError } =
+    useContext(AppContext);
   const navigation = useNavigation();
   const params = useParams();
+  const spinnerWrapperRef = useRef();
+  const [bgImageLoaded, setBgImageLoaded] = useState(false);
+  const [spinnerIsOn, setSpinnerIsOn] = useState(true);
 
   const bgRes = adjustBgRes();
 
@@ -60,6 +64,22 @@ const App = () => {
     setBgImageLoaded(false);
   }, [appBackground]);
 
+  useEffect(() => {
+    if (navigation.state === "loading" || !bgImageLoaded) {
+      setSpinnerIsOn(true);
+    } else {
+      setTimeout(() => {
+        if (spinnerWrapperRef && spinnerWrapperRef.current) {
+          spinnerWrapperRef.current.classList.add("fade-out");
+        }
+      }, 0);
+
+      setTimeout(() => {
+        setSpinnerIsOn(false);
+      }, 250);
+    }
+  }, [bgImageLoaded, navigation.state, spinnerIsOn]);
+
   return (
     <>
       {bgImage}
@@ -72,7 +92,11 @@ const App = () => {
       </div>
       <Modal />
       <Footer />
-      {(navigation.state === "loading" || !bgImageLoaded) && <Spinner />}
+      {spinnerIsOn && (
+        <div className="spinner-wrapper" ref={spinnerWrapperRef}>
+          <Spinner />
+        </div>
+      )}
     </>
   );
 };
