@@ -17,7 +17,14 @@ const CitiesFound = () => {
     setAppBackground("home");
   }, [setAppBackground]);
 
-  return <CitiesList data={citiesVerified} />;
+  return (
+    <>
+      <header className="cities-found__header">
+        <p>Wybierz właściwą lokalizację z listy:</p>
+      </header>
+      <CitiesList data={citiesVerified} />
+    </>
+  );
 };
 
 export default CitiesFound;

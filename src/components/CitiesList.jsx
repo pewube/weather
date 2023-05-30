@@ -93,14 +93,7 @@ const CitiesList = ({ data, handleRemove = null }) => {
     </li>
   ));
 
-  return (
-    <>
-      <header className="cities-list__header">
-        <p>Wybierz właściwą lokalizację z listy:</p>
-      </header>
-      <ul className="cities-list">{citiesList}</ul>
-    </>
-  );
+  return <ul className="cities-list">{citiesList}</ul>;
 };
 
 export default CitiesList;
