@@ -70,7 +70,7 @@ const DailyForecast = (props) => {
           <h3>{headerDate}</h3>
           <p className="day__header__date__weekday">{weekDay}</p>
         </section>
-        <section className="day__header__temp">
+        <section className="day__header__temp-container">
           <p className="day__header__temp__max">
             <strong>{temp.max.toFixed()}&#176;C</strong>
           </p>
