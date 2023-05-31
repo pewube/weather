@@ -14,12 +14,20 @@ export async function loader({ params }) {
 const Forecast = () => {
   const data = useLoaderData();
   const [hiddenMap, setHiddenMap] = useState(true);
+  const [hiddenMapStyle, setHiddenMapStyle] = useState(true);
   const mapData = { lat: data.forecast.lat, lon: data.forecast.lon };
   const mapRef = useRef();
   const params = useParams();
   const { setAppBackground, setModal, setWeatherData } = useContext(AppContext);
 
-  const handleMapBtn = () => setHiddenMap((hiddenMap) => !hiddenMap);
+  const handleMapBtn = () => {
+    setHiddenMapStyle((hiddenMapStyle) => !hiddenMapStyle);
+    if (!hiddenMap) {
+      setTimeout(() => {
+        setHiddenMap((hiddenMap) => !hiddenMap);
+      }, 200);
+    } else setHiddenMap((hiddenMap) => !hiddenMap);
+  };
 
   useEffect(() => {
     setModal({ visible: false, header: {}, body: {} });
@@ -51,7 +59,7 @@ const Forecast = () => {
         id="collapse-map"
         className="forecast__map"
         ref={mapRef}
-        style={hiddenMap ? null : { height: 240 }}>
+        style={hiddenMapStyle ? null : { height: 240 }}>
         {!hiddenMap && (
           <MapLocation data={mapData} popup={false} dragging={false} />
         )}
