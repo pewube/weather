@@ -89,7 +89,9 @@ const Header = ({ handleHomeLinkClick }) => {
   const favoriteBtns =
     Object.keys(params).length <= 1 ? (
       <div className="header__favorites">
-        <button className="btn-clear favorite-btn">
+        <button
+          className="btn-clear favorite-btn"
+          aria-label="Show modal with list of favorite locations">
           <BtnFavorites
             className="material-symbols-outlined"
             onClick={handleFavoritesClick}
