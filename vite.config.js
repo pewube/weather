@@ -11,7 +11,7 @@ export default defineConfig({
   },
   plugins: [
     legacy({
-      targets: ["defaults", "not IE 11"],
+      targets: ["> 0.5%", "not IE 11"],
     }),
     react(),
     svgr({ svgrOptions: { icon: true } }),
