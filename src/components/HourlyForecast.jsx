@@ -10,8 +10,8 @@ import { ReactComponent as BtnExpandLess } from "../assets/images/icons/btn/btn-
 
 const HourlyForecast = (props) => {
   const [detailsVisible, setDetailsVisible] = useState(false);
-  const containerRef = useRef(); //details container
-  const detailsRef = useRef(); //details container
+  const containerRef = useRef();
+  const detailsRef = useRef();
   const detailsId = useId();
 
   const {
@@ -47,8 +47,15 @@ const HourlyForecast = (props) => {
     }
   }, [detailsVisible]);
 
-  const showDetails = () => {
-    setDetailsVisible((prev) => !prev);
+  const handleDetailsBtn = () => {
+    if (detailsRef.current && detailsVisible) {
+      detailsRef.current.style.height = "0";
+      setTimeout(() => {
+        setDetailsVisible((prev) => !prev);
+      }, 200);
+    } else {
+      setDetailsVisible((prev) => !prev);
+    }
   };
 
   return (
@@ -79,7 +86,7 @@ const HourlyForecast = (props) => {
             height="30"
           />
           <button
-            onClick={showDetails}
+            onClick={handleDetailsBtn}
             className="hour__header__btn-details btn-clear"
             type="button"
             aria-expanded={detailsVisible ? true : false}

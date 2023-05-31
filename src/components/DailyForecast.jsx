@@ -9,7 +9,7 @@ import { ReactComponent as BtnExpandLess } from "../assets/images/icons/btn/btn-
 
 const DailyForecast = (props) => {
   const [detailsVisible, setDetailsVisible] = useState(false);
-  const containerRef = useRef(); //details container
+  const containerRef = useRef();
   const detailsRef = useRef();
   const detailsId = useId();
 
@@ -52,8 +52,15 @@ const DailyForecast = (props) => {
     }
   }, [detailsVisible]);
 
-  const showDetails = (e) => {
-    setDetailsVisible((prev) => !prev);
+  const handleDetailsBtn = () => {
+    if (detailsRef.current && detailsVisible) {
+      detailsRef.current.style.height = "0";
+      setTimeout(() => {
+        setDetailsVisible((prev) => !prev);
+      }, 200);
+    } else {
+      setDetailsVisible((prev) => !prev);
+    }
   };
 
   return (
@@ -77,7 +84,7 @@ const DailyForecast = (props) => {
           height="40"
         />
         <button
-          onClick={showDetails}
+          onClick={handleDetailsBtn}
           className="day__header__btn-details btn-clear"
           type="button"
           aria-expanded={detailsVisible ? true : false}
@@ -90,7 +97,6 @@ const DailyForecast = (props) => {
           )}
         </button>
       </header>
-
       <section
         id={`collapse-hour-${detailsId}`}
         className="day__details"
