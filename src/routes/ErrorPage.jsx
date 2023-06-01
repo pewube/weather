@@ -15,6 +15,8 @@ export default function ErrorPage() {
     ) : null;
   const statusText = error.statusText ? (
     <p>{decodeURIComponent(error.statusText)}</p>
+  ) : !navigator.onLine ? (
+    <p>Brak połączenia z internetem.</p>
   ) : (
     <p>Wystąpił nieznany problem z przetwarzaniem danych.</p>
   );
