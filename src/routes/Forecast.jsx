@@ -33,6 +33,7 @@ const Forecast = () => {
     setModal({ visible: false, header: {}, body: {} });
     setWeatherData(data);
     setAppBackground(data.current.weather[0].icon);
+    setHiddenMapStyle(true);
     setHiddenMap(true);
   }, [data, setAppBackground, setModal, setWeatherData]);
 
